@@ -1,18 +1,20 @@
 package com.techelevator;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Items {
 
-    public String displayItems;
+    private String displayItems;
     private double price;
     private String productName;
     private String type;
 
     public Items() {
-        displayItems = displayItems();
+        this.displayItems = displayItems();
     }
 
     //going to have to add an inventory getter in here
@@ -31,11 +33,11 @@ public class Items {
                 String currentLine = file.nextLine();
                 System.out.println(currentLine);
             }
+
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
         }
-
-        return getDisplayItems();
+        return displayItems;
     }
 
     public String getDisplayItems() {
