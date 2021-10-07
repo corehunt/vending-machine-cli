@@ -1,7 +1,15 @@
 package com.techelevator;
 
 public class Money {
-    public double feedMoney(){
+    //private double balance;
+
+
+
+    public double feedMoney(double cash){
+
+        return 0;
+    }
+    public double moneyBalance(){
 
         return 0;
     }
