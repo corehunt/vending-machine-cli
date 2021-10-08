@@ -19,6 +19,7 @@ public class UserInteraction {
         if(userInput.equalsIgnoreCase("1")){
             oneToDisplayItems();
         }
+
     }
 
     public void oneToDisplayItems(){
