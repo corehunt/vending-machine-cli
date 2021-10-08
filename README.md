@@ -18,7 +18,7 @@ with everyone's bank accounts, allowing customers to purchase products from thei
 starts.
 4. The vending machine is automatically restocked each time the application runs.
 5. When the customer selects "(1) Display Vending Machine Items", they're presented
-with a list of all items in the vending machine with its quantity remaining:
+with a list of all itemReader in the vending machine with its quantity remaining:
     - Each vending machine product has a slot identifier and a purchase price.
     - Each slot in the vending machine has enough room for 5 of that product.
     - Every product is initially stocked to the maximum amount.
@@ -48,10 +48,10 @@ process menu:
         - If a valid product is selected, it is dispensed to the customer.
         - Dispensing an item prints the item name, cost, and the money
         remaining. Dispensing also returns a message:
-          - All chip items print "Crunch Crunch, Yum!"
-          - All candy items print "Munch Munch, Yum!"
-          - All drink items print "Glug Glug, Yum!"
-          - All gum items print "Chew Chew, Yum!"
+          - All chip itemReader print "Crunch Crunch, Yum!"
+          - All candy itemReader print "Munch Munch, Yum!"
+          - All drink itemReader print "Glug Glug, Yum!"
+          - All gum itemReader print "Chew Chew, Yum!"
         - After the product is dispensed, the machine must update its balance
         accordingly and return the customer to the Purchase menu.
     3. Selecting "(3) Finish Transaction" allows the customer to complete the

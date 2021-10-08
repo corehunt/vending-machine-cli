@@ -1,11 +1,9 @@
 package com.techelevator;
 
-public enum Gum  {
-
-    UChews("D1",0.85,"Gum"),LittleLeagueChew("D2",0.95,"Gum"),
-    Chiclets("D3",0.75,"Gum"),Triplemint("D4",0.75,"Gum");
+public class Product {
 
     private final String id;
+    private final String name;
     private final double price;
     private final String type;
 
@@ -21,8 +19,18 @@ public enum Gum  {
         return price;
     }
 
-    Gum(String id, double price, String type){
+    public String getName() {
+        return name;
+    }
+    @Override
+    public String toString(){
+        String output = id +" "+ name +" " + price +" " + type;
+
+        return output;
+    }
+    Product(String id, String name, double price, String type){
         this.id = id;
+        this.name = name;
         this.price = price;
         this.type = type;
 

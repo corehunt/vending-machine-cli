@@ -1,22 +1,13 @@
 package com.techelevator;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.TreeMap;
 
-public class Items {
+public class ItemReader {
 
-    private String displayItems;
-    private double price;
-    private String productName;
-    private String type;
-
-    public Items() {
-
-
-    }
 
     //going to have to add an inventory getter in here
     // Display the list of menu items from vendingmachine.csv file
@@ -25,27 +16,25 @@ public class Items {
     //soutpl(line)
 
 
-    public String displayItems(){
+    public static TreeMap<String, Product> readItems(){
         File vendingItems = new File("vendingmachine.csv");
-
+        TreeMap<String, Product> productsMap = new TreeMap<>();
         try (Scanner file = new Scanner(vendingItems)){
 
             while(file.hasNextLine()){
-                System.out.println(file.nextLine() + "|Qty: 5");
+                String line = file.nextLine();
+                String[] parts = line.split("\\|");
+                Product product = new Product(parts[0],parts[1],Double.valueOf(parts[2]),parts[3]);
+                productsMap.put(product.getId(),product);
+
               //  System.out.println(currentLine);
             }
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
         }
-        return displayItems;
+        return productsMap;
     }
 
-    public String getDisplayItems() {
-        return displayItems;
-    }
 
-    public void setDisplayItems(String displayItems) {
-        this.displayItems = displayItems;
-    }
 }
