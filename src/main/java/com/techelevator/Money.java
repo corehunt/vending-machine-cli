@@ -6,25 +6,25 @@ public class Money implements Calculator {
     //private double balance;
     Scanner keyboard = new Scanner(System.in);
 
-    public Double moneyEntry(){
-            boolean feedMoreMoney = true;
+    public int moneyEntry(){
+        boolean feedMoreMoney = true;
+        int finalCashBalance = 0;
+
             while (feedMoreMoney){
+                System.out.println("Please enter a whole dollar amount of $1, $5, or $10.");
                 String input = keyboard.nextLine();
-                Double cashInput = Double.parseDouble(input);
+                int cashInput = Integer.parseInt(input);
+                finalCashBalance += cashInput;
 
-
-                System.out.println("Would you like to add more money? Y/N");
-                String moreMoney = keyboard.nextLine();
-
-                if(moreMoney.equalsIgnoreCase("Y")){
-                    System.out.println("Please a whole dollar amount of $1, $5, or $10.");
-
-                } else if(moreMoney.equalsIgnoreCase("N")){
-                    System.out.println("Total money entered: " + cashInput);
+                System.out.println("Your cash balance is : $" + finalCashBalance);
+                System.out.println("Would you like to add more cash? (Y/N)");
+                String moreCashNeeded = keyboard.nextLine();
+                if(moreCashNeeded.equalsIgnoreCase("N")) {
+                    System.out.println("Thank You!");
                     feedMoreMoney = false;
-                }
-
+                    System.out.println("Your final cash balance is: $" + finalCashBalance);
             }
+            } return finalCashBalance;
         }
 
 

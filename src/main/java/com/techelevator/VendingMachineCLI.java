@@ -10,6 +10,8 @@ public class VendingMachineCLI {
 
 		UserInteraction welcomeToVendoMatic = new UserInteraction();
 		welcomeToVendoMatic.welcome();
+		welcomeToVendoMatic.twoToDisplayPurchaseMenu();
+
 		/*	Display vending machine items
 		Each vending machine product has a slot identifier and a purchase price.
 		Each slot in the vending machine has enough room for 5 of that product.
@@ -19,25 +21,14 @@ public class VendingMachineCLI {
 
 
 
-//		if(userInput.equals("1")){
+
+
+
+//		} else if(userInput.equals("2")) {
+//			System.out.println("Please a whole dollar amount of $1, $5, or $10.");
 //
-//			Items vendingItems = new Items();
-//			vendingItems.displayItems();
 //
-//			System.out.println("");
-//			System.out.println("Press 2 to purchase.");
-//			System.out.println("Press 3 to exit.");
-//			String itemSelection = keyboard.nextLine();		//A1 1.00 or B3
-
-
-
-
-
-		} else if(userInput.equals("2")) {
-			System.out.println("Please a whole dollar amount of $1, $5, or $10.");
-
-
-		}
+//		}
 
 	}
 
