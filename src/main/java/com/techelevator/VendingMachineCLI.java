@@ -7,10 +7,12 @@ public class VendingMachineCLI {
 
 	public static void main(String[] args) {
 		// Make some objects here!
+		Scanner keyboard = new Scanner(System.in);
 
 		UserInteraction welcomeToVendoMatic = new UserInteraction();
-		welcomeToVendoMatic.welcome();
-		welcomeToVendoMatic.twoToDisplayPurchaseMenu();
+		welcomeToVendoMatic.mainMenu();
+
+
 
 		/*	Display vending machine items
 		Each vending machine product has a slot identifier and a purchase price.
@@ -24,11 +26,7 @@ public class VendingMachineCLI {
 
 
 
-//		} else if(userInput.equals("2")) {
-//			System.out.println("Please a whole dollar amount of $1, $5, or $10.");
-//
-//
-//		}
+
 
 	}
 
