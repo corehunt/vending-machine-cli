@@ -25,7 +25,6 @@ public class VendingMachineCLI {
 		 */
 
 
-
 		if(userInput.equals("1")){
 			Items vendingItems = new Items();
 			vendingItems.displayItems();
@@ -34,8 +33,6 @@ public class VendingMachineCLI {
 			System.out.println("Press 2 to purchase.");
 			System.out.println("Press 3 to exit.");
 			String itemSelection = keyboard.nextLine();		//A1 1.00 or B3
-
-
 
 
 

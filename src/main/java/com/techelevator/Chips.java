@@ -1,6 +1,8 @@
 package com.techelevator;
 
-public class Products {
+public enum Chips {
+    PotatoCrisps("A1",3.05,"Chip"),Stackers("A2",1.45,"Chip"),
+    GrainWaves("A3",2.75,"Chip"),CloudPopcorn("A4",3.65,"Chip");
 
     private final String id;
     private final double price;
@@ -18,7 +20,7 @@ public class Products {
         return price;
     }
 
-    Products(String id, double price, String type){
+    Chips(String id, double price, String type){
         this.id = id;
         this.price = price;
         this.type = type;
