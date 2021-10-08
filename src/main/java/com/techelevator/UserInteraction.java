@@ -17,11 +17,11 @@ public class UserInteraction {
         System.out.print("Please make your selection >>> ");
         String userInput = keyboard.nextLine();
         if(userInput.equalsIgnoreCase("1")){
-            oneToDisplay();
+            oneToDisplayItems();
         }
     }
 
-    public void oneToDisplay(){
+    public void oneToDisplayItems(){
         Items vendingItems = new Items();
         vendingItems.displayItems();
 
@@ -29,7 +29,13 @@ public class UserInteraction {
         System.out.println("Press 2 to purchase.");
         System.out.println("Press 3 to exit.");
         String itemSelection = keyboard.nextLine();
+
+
     }
 
-    public void twoToDisplay
+    public void twoToDisplayPurchaseMenu(){
+        Money moneyInputIntoMachine = new Money();
+        moneyInputIntoMachine.moneyEntry();
+    }
+
 }
