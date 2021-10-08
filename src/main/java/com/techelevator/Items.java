@@ -14,7 +14,8 @@ public class Items {
     private String type;
 
     public Items() {
-        this.displayItems = displayItems();
+
+
     }
 
     //going to have to add an inventory getter in here
@@ -30,8 +31,8 @@ public class Items {
         try (Scanner file = new Scanner(vendingItems)){
 
             while(file.hasNextLine()){
-                String currentLine = file.nextLine();
-                System.out.println(currentLine);
+                System.out.println(file.nextLine());
+              //  System.out.println(currentLine);
             }
 
         } catch (FileNotFoundException e) {

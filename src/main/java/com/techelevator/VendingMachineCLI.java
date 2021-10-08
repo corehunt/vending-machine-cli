@@ -40,6 +40,20 @@ public class VendingMachineCLI {
 
 
 		} else if(userInput.equals("2")) {
+			System.out.println("Please a whole dollar amount of 1, 5, or 10.");
+			boolean feedMoreMoney = true;
+			while (feedMoreMoney){
+				String input = keyboard.nextLine();
+				Double cashInput = Double.parseDouble(input);
+				System.out.println("Would you like to add more money? Y/N");
+				String moreMoney = keyboard.nextLine();
+				if(moreMoney.equals("Y")){
+					System.out.println("Please a whole dollar amount of 1, 5, or 10.");
+
+
+				}
+
+			}else if(feedMoreMoney){
 
 		}
 

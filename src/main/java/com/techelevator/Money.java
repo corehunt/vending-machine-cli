@@ -1,20 +1,17 @@
 package com.techelevator;
 
-public class Money {
+public class Money implements Calculator {
     //private double balance;
 
 
 
-    public double feedMoney(double cash){
-
+    @Override
+    public double calculateTotal(Money enteredMoney) {
         return 0;
     }
-    public double moneyBalance(){
 
-        return 0;
-    }
-    public double change(){
-
-        return 0;
+    @Override
+    public Money calculateChange(double amountOfChange) {
+        return null;
     }
 }
