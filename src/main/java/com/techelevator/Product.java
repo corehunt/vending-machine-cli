@@ -1,8 +1,9 @@
 package com.techelevator;
 
-public class Products {
+public class Product {
 
     private final String id;
+    private final String name;
     private final double price;
     private final String type;
 
@@ -18,8 +19,18 @@ public class Products {
         return price;
     }
 
-    Products(String id, double price, String type){
+    public String getName() {
+        return name;
+    }
+    @Override
+    public String toString(){
+        String output = id +" "+ name +" " + price +" " + type;
+
+        return output;
+    }
+    Product(String id, String name, double price, String type){
         this.id = id;
+        this.name = name;
         this.price = price;
         this.type = type;
 

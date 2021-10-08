@@ -1,16 +1,30 @@
 package com.techelevator;
 
-import java.util.Scanner;
+import com.sun.source.tree.Tree;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeMap;
 
 // Vending Machine Command Line Interface application
 public class VendingMachineCLI {
 
 	public static void main(String[] args) {
+//		File file = new File("vendingmachine.csv");
+//
+//			if(file.exists()){
+//				try(Scanner file = new Scanner(file)){
+//
+//				}
+//			}
+
 		// Make some objects here!
 		Scanner keyboard = new Scanner(System.in);
 
+		TreeMap<String, Product> productsMap = ItemReader.readItems();
+		Inventory inventory = new Inventory(new ArrayList<>(productsMap.keySet()));
 		UserInteraction welcomeToVendoMatic = new UserInteraction();
-		welcomeToVendoMatic.mainMenu();
+		welcomeToVendoMatic.mainMenu(productsMap);
 
 
 
