@@ -31,7 +31,7 @@ public class Items {
         try (Scanner file = new Scanner(vendingItems)){
 
             while(file.hasNextLine()){
-                System.out.println(file.nextLine());
+                System.out.println(file.nextLine() + "|Qty: 5");
               //  System.out.println(currentLine);
             }
 
