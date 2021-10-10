@@ -54,7 +54,7 @@ public class UserInteraction {
             inputMoney();
 
         } else if (userInput.equalsIgnoreCase("2")) {
-
+            oneToDisplayItems();
             System.out.println("");
             System.out.println("Please enter the code of the product you would like to purchase >>> ");
 
