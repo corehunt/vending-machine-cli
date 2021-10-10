@@ -4,6 +4,7 @@ import com.sun.source.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.TreeMap;
 
 // Vending Machine Command Line Interface application
@@ -20,18 +21,24 @@ public class VendingMachineCLI {
 
 		// Make some objects here!
 		Scanner keyboard = new Scanner(System.in);
+		ItemReader map = new ItemReader();
 
-		TreeMap<String, Product> productsMap = ItemReader.readItems();
-		Inventory inventory = new Inventory(new ArrayList<>(productsMap.keySet()));
+//		TreeMap<String, Product> productsMap = ItemReader.readItems();
+//		Inventory inventory = new Inventory(new ArrayList<>(productsMap.keySet()));
 		UserInteraction welcomeToVendoMatic = new UserInteraction();
-		welcomeToVendoMatic.mainMenu(productsMap);
+		welcomeToVendoMatic.mainMenu();
+
+
+
+
+
 
 
 
 		/*	Display vending machine items
 		Each vending machine product has a slot identifier and a purchase price.
 		Each slot in the vending machine has enough room for 5 of that product.
-		Every product is initially stocked to the maximum amount.
+		Every product is initially stocked to the maximu m amount.
 		A product that has run out must indicate that it is SOLD OUT.
 		 */
 

@@ -3,17 +3,18 @@ package com.techelevator;
 import java.util.Scanner;
 
 public class Money implements Calculator {
-    //private double balance;
+    private double balance = 0.00;
     Scanner keyboard = new Scanner(System.in);
 
-    public int moneyEntry(){
+
+    public Double moneyEntry(){
         boolean feedMoreMoney = true;
-        int finalCashBalance = 0;
+        double finalCashBalance = 0.00;
 
             while (feedMoreMoney){
-                System.out.println("Please enter a whole dollar amount of $1, $5, or $10.");
+                System.out.println("Please enter a whole dollar amount of $1.00, $5.00, or $10.00.");
                 String input = keyboard.nextLine();
-                int cashInput = Integer.parseInt(input);
+                double cashInput = Double.parseDouble(input);
                 finalCashBalance += cashInput;
 
                 System.out.println("Your cash balance is : $" + finalCashBalance);
@@ -23,9 +24,32 @@ public class Money implements Calculator {
                     System.out.println("Thank You!");
                     feedMoreMoney = false;
                     System.out.println("Your final cash balance is: $" + finalCashBalance);
+                    System.out.println(" ");
+
             }
-            } return finalCashBalance;
+                balance = finalCashBalance;
+
+            } return balance;
         }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public double purchasedItem(double price){
+        balance -= price;
+        return balance;
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
