@@ -17,7 +17,7 @@ public class ItemReader {
     //soutpl(line)
 
 
-    public TreeMap<String, Product> readItems(){
+    public static TreeMap<String, Product> readItems(){
         File vendingItems = new File("vendingmachine.csv");
 
         TreeMap<String, Product> productsMap = new TreeMap<>();
@@ -28,7 +28,6 @@ public class ItemReader {
                 String[] parts = line.split("\\|");
                 Product product = new Product(parts[0],parts[1],Double.parseDouble(parts[2]),parts[3]);
                 productsMap.put(product.getId(),product);
-
 
               //  System.out.println(currentLine);
             }

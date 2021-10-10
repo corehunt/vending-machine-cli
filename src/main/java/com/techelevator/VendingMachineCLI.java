@@ -23,22 +23,20 @@ public class VendingMachineCLI {
 		Scanner keyboard = new Scanner(System.in);
 		ItemReader map = new ItemReader();
 
-//		TreeMap<String, Product> productsMap = ItemReader.readItems();
-//		Inventory inventory = new Inventory(new ArrayList<>(productsMap.keySet()));
+		TreeMap<String, Product> productsMap = ItemReader.readItems();
+
+
+//		All keys from our map are passed into a list called inventory
+		Inventory inventory = new Inventory(new ArrayList<>(productsMap.keySet()));
+//
 		UserInteraction welcomeToVendoMatic = new UserInteraction();
-		welcomeToVendoMatic.mainMenu();
-
-
-
-
-
-
+		welcomeToVendoMatic.mainMenu(productsMap,inventory);
 
 
 		/*	Display vending machine items
 		Each vending machine product has a slot identifier and a purchase price.
 		Each slot in the vending machine has enough room for 5 of that product.
-		Every product is initially stocked to the maximu m amount.
+		Every product is initially stocked to the maximum amount.
 		A product that has run out must indicate that it is SOLD OUT.
 		 */
 

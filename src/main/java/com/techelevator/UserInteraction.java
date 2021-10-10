@@ -1,17 +1,18 @@
 package com.techelevator;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
 import java.util.Scanner;
 import java.util.TreeMap;
 
 public class UserInteraction {
     Scanner keyboard = new Scanner(System.in);
-    ItemReader map = new ItemReader();
-    Money moneyInputIntoMachine = new Money();
+    TreeMap<String, Product> productsMap;
+    Inventory allInventory;
+    Money moneyManagement = new Money();
 
-    public void mainMenu() {
+    public void mainMenu(TreeMap<String, Product> productsMap,  Inventory inventory)  {
+        this.productsMap = productsMap;
+        this.allInventory = inventory;
+
         System.out.println("Welcome to Vendomatic 800!");
         System.out.println("");
         System.out.println("Press 1 to display vending machine items.");
@@ -21,12 +22,12 @@ public class UserInteraction {
 
         System.out.print("Please make your selection >>> ");
         String userInput = keyboard.nextLine();
-        ItemReader itemReader = new ItemReader();
+
 
 
         if (userInput.equalsIgnoreCase("1")) {
             oneToDisplayItems();
-            mainMenu();
+            mainMenu(productsMap,inventory);
         } else if (userInput.equalsIgnoreCase("2")) {
             purchaseMenu();
 
@@ -36,17 +37,8 @@ public class UserInteraction {
 
     }
 
-    public void productsMenu() {
-        System.out.println("Welcome to Vendomatic 800!");
-        System.out.println("");
-        System.out.println("Press 1 to display vending machine items.");
-        System.out.println("Press 2 to purchase.");
-        System.out.println("Press 3 to exit.");
-        System.out.println("");
 
-        System.out.print("Please make your selection >>> ");
-        String userInput = keyboard.nextLine();
-    }
+
 
     public void purchaseMenu() {
         System.out.println("");
@@ -58,96 +50,70 @@ public class UserInteraction {
         System.out.print("Please make your selection >>> ");
         String userInput = keyboard.nextLine();
 
-
-        if(userInput.equals("1")){
+        if (userInput.equals("1")) {
             inputMoney();
 
-        } else if(userInput.equalsIgnoreCase("2")){
+        } else if (userInput.equalsIgnoreCase("2")) {
+
+            System.out.println("");
+            System.out.println("Please enter the code of the product you would like to purchase >>> ");
+
+            String productSelection = keyboard.nextLine().toUpperCase();
+            if(productsMap.containsKey(productSelection)) {
 
 
-                System.out.println("");
-                System.out.println("Please enter the code of the product you would like to purchase >>> ");
+                Product selection = productsMap.get(productSelection.toUpperCase());
+                System.out.println(selection.getName() + selection.getPrice());
 
-                String productSelection = keyboard.nextLine();
-                Product selection = map.readItems().get(productSelection);
+                //getting balance and passing through price -- returning balance left after purchase
+                moneyManagement.purchasedItem(selection.getPrice());
+                System.out.println("Money remaining: $" + moneyManagement.getBalance());
 
-
-
-                if(selection.getType().equals("Chip")){
+                if (selection.getType().equals("Chip")) {
                     //getting snack
-                    System.out.println(map.readItems().get(productSelection));
+
                     System.out.println("Crunch Crunch, Yum!");
 
-                    //getting balance and passing through price -- returning balance left after purchase
-                    moneyInputIntoMachine.purchasedItem(selection.getPrice());
-                    System.out.println("Money remaining: $" + moneyInputIntoMachine.getBalance());
+                } else if (selection.getType().equals("Candy")) {
 
-                } else if(selection.getType().equals("Candy")) {
-                    System.out.println(map.readItems().get(productSelection));
                     System.out.println("Munch Munch, Yum!");
 
-                    moneyInputIntoMachine.purchasedItem(selection.getPrice());
-                    System.out.println("Money remaining: $" + moneyInputIntoMachine.getBalance());
+                } else if (selection.getType().equals("Drink")) {
 
-                } else if(selection.getType().equals("Drink")) {
-                    System.out.println(map.readItems().get(productSelection));
                     System.out.println("Glug Glug, Yum!");
 
-                    moneyInputIntoMachine.purchasedItem(selection.getPrice());
-                    System.out.println("Money remaining: $" + moneyInputIntoMachine.getBalance());
-
                 } else {
-                    System.out.println(map.readItems().get(productSelection));
+
                     System.out.println("Chew Chew, Yum!");
 
-                    moneyInputIntoMachine.purchasedItem(selection.getPrice());
-                    System.out.println("Money remaining: $" + moneyInputIntoMachine.getBalance());
                 }
                 purchaseMenu();
+            }else{//product was not found
 
+                System.out.println("Product does not exist!");
+                mainMenu(productsMap,allInventory);
+            }
 
-
-        } else if(userInput.equalsIgnoreCase("3")){
+        } else if (userInput.equalsIgnoreCase("3")) {
             System.out.println("Thank you for using VendoMatic");
-            System.out.println("Your change is: ");
+            System.out.print("Your change is: " + moneyManagement.calculateChange());
+
+ //
+
         }
 
 
     }
+
     public void inputMoney() {
-        moneyInputIntoMachine.moneyEntry();
+        moneyManagement.moneyEntry();
         purchaseMenu();
     }
+// For each item in our products map print each line with the quantity. String concatenation
     public void oneToDisplayItems() {
-        File vendingMachine = new File("vendingmachine.csv");
+        for (Product product :productsMap.values()) {
+            System.out.println(product.toString() + " Inventory " + allInventory.getInventory(product.getId()));
 
-        try(Scanner fileScanner = new Scanner(vendingMachine);) {
-            while(fileScanner.hasNextLine()){
-                String currentLine = fileScanner.nextLine();
-                System.out.println(currentLine + "|Qty: 5");
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found!");
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public void oneToDisplayItems(){
-//        Items vendingItems = new Items();
-//        vendingItems.displayItems();
-//    }
-
-
-
     }
-}
+    }
