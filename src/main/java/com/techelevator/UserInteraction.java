@@ -23,8 +23,6 @@ public class UserInteraction {
         System.out.print("Please make your selection >>> ");
         String userInput = keyboard.nextLine();
 
-
-
         if (userInput.equalsIgnoreCase("1")) {
             oneToDisplayItems();
             mainMenu(productsMap,inventory);

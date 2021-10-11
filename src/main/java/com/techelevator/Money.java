@@ -44,7 +44,6 @@ public class Money {
 
     public String calculateChange() {
 
-
         double quarter = .25;
         double dime = .10;
         double nickle = .05;
