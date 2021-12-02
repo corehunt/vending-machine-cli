@@ -17,7 +17,7 @@ reduce quantity methods
  */
     public Inventory(ArrayList<String> listOfId) {
 
-        for (String id : listOfId) {
+        for (String id : listOfId)  {
             allInventory.put(id,5);
 
         }
